@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto; /* Maintains aspect ratio */
+        }
+
+        section {
+            padding: 2rem;
+        }
+
+        /* Header Section */
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(8, 84, 114);
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin-left: 10px;
+            font-size: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Home Section */
+        #home {
+            display: flex;
+            flex-wrap: wrap; /* Ensures content wraps on smaller screens */
+            background-color: beige;
+            align-items: center;
+        }
+
+        .home-left {
+            flex: 1;
+            text-align: center;
+        }
+
+        .home-right {
+            flex: 1;
+            text-align: left;
+            padding: 1rem;
+        }
+
+        .home-right h2 {
+            color: rgb(6, 70, 95);
+            font-size: 2rem;
+        }
+
+        .home-right p {
+            color: rgb(8, 84, 114);
+            font-size: 1.1rem;
+            word-spacing: 5px;
+            line-height: 1.6;
+        }
+
+        #home .home-right a {
+            margin-top: 30px;
+            background-color: rgb(8, 84, 114);
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        /* About Section */
+        #about {
+            text-align: center;
+            background-color: beige;
+        }
+
+        #about h2 {
+            color: rgb(6, 70, 95);
+            font-size: 2rem;
+        }
+
+        #about p {
+            color: rgb(8, 84, 114);
+            font-size: 1.1rem;
+            word-spacing: 5px;
+            line-height: 1.6;
+        }
+
+
+        /*Education Section*/
+        #education {
+            padding: 20px;
+            text-align: center;
+            background: beige;
+        }
+
+        #education h2 {
+            color: rgb(6, 70, 95);
+        }
+
+        .education-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+    .education-box {
+        background: rgb(250, 250, 248);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: left;
+    }
+
+    .education-box h3 {
+        color: rgb(6, 70, 95);
+        font-size: 20px;
+    }
+
+    .education-box p {
+        font-size: 16px;
+        color: rgb(8, 84, 114);
+    }
+
+        /* Skills Section */
+        #skills {
+            background-color: beige;
+            text-align: center;
+        }
+
+        #skills h2 {
+            color: rgb(6, 70, 95);
+        }
+
+        #skills .sk1 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        #skills .sk1 img {
+            width: 122px;
+            height: 122px;
+            object-fit: contain;
+        }
+
+        /* Certificates Section */
+        #certificate {
+            background-color: beige;
+            text-align: center;
+        }
+
+        #certificate a {
+            margin-top: 30px;
+            background-color: rgb(8, 84, 114);
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        /* Internships Section */
+        #internship {
+            background-color: beige;
+            text-align: center;
+        }
+
+        #internship a {
+            margin-top: 30px;
+            background-color: rgb(8, 84, 114);
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        /*Projects section*/
+        #projects {
+            background-color: beige;
+            text-align: center;
+        }
+
+        #projects a {
+            margin-top: 30px;
+            background-color: rgb(8, 84, 114);
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: beige;
+            text-align: center;
+        }
+
+        .cont {
+            background-color: cadetblue;
+            width: fit-content;
+            margin: 0 auto;
+            border: 5px solid rgb(8, 84, 114);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .cont img {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: rgb(8, 84, 114);
+            color: white;
+            text-align: center;
+        }
+
+        footer marquee {
+            display: block;
+            padding: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 10px;
+            }
+
+            #home {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .home-right {
+                text-align: center;
+            }
+
+            #skills .sk1 img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .cont {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            #home p, #about p, #contact p {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                gap: 5px;
+            }
+
+            #skills .sk1 img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .cont {
+                width: auto;
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Portfolio</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#certificate">Certificates</a></li>
+                    <li><a href="#internship">Internships</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="home-left">
+            <img src="https://res.cloudinary.com/dw6z3ltso/image/upload/v1734165835/1734101368502-fotor-2024121414104_mr7ncx.png" alt="student pic" width="300" height="300">
+        </div>
+        <div class="home-right">
+            <h2>Kola Teja Naga Sri</h2>
+            <p>"Hello, I'm Teja Naga Sri, currently pursuing my studies in Computer Science at Sasi Institute of Technology and Engineering. My passion lies in technology, design, and problem-solving. I'm always excited to learn new technologies and build innovative solutions. My dream is to work with leading tech companies to create impactful software products."
+            </p>
+            <a href="https://res.cloudinary.com/dsx1pfgx2/image/upload/v1738683803/resumeoverleaf_tfpdzy.jpg" target="_blank">Click here for Resume</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I have strong foundation in programming languages like C, Python, Java as well as web development technologies like HTML, CSS, JavaScript and full-stack. I have build responsive web pages. I have also participated in Hackathons like Smart India Hackathon(SIH) and Micro,Small and Medium Enterprises(MSME). I had done Internships like Machine Learning, Android Development.</p>
+        <!-- More about the business -->
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education-container">
+            <div class="education-box">
+                <h3>Sasi Institute of Technology and Engineering</h3>
+                <p>Location: Tadepalligudem, AP, India</p>
+                <p>Percentage: 85%</p>
+                <p>Year: 2022 - 2026</p>
+            </div>
+    
+            <div class="education-box">
+                <h3>Sasi Junior College</h3>
+                <p>Location: Tanuku, AP, India</p>
+                <p>Percentage: 93%</p>
+                <p>Year: 2020 - 2022</p>
+            </div>
+
+            <div class="education-box">
+                <h3>Montessori School</h3>
+                <p>Location: Tanuku, AP, India</p>
+                <p>Percentage: 93%</p>
+                <p>Year: 2019 - 2020</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="skills">
+        <div class="sk">
+        <h2>Skills</h2>
+        </div>
+        <div class="sk1">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN2Ob42L45hStICYlml7RTjH9p4q0E89vc6Q&s" alt="c" style="width:122px;height:122px;">
+        <img src="https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp?fit=1920%2C1920&ssl=1" alt="python" style="width:122px;height:122px;">
+        <img src="https://1000logos.net/wp-content/uploads/2020/09/Java-Emblem.jpg" alt="java" style="width:122px;height:122px;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFBDpP5C5t_t8FjbMu-rjqndyjCmaoKMNTjA&s" alt="html"  style="width:122px;height:122px;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD6JsUMyt5qWN2Q4FAeBfgsaXRy5ZAQ1m-ZQ&s" alt="css" style="width:122px;height:122px;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnQK9gTb30FwDgp7Ss5lS1yumraT65MmdaR1J2ZLBa5WYjgzafpD8dac4lP-Kp3pWmebY&usqp=CAU" alt="javascript"  style="width:122px;height:122px;">
+        <img src="https://cdn.worldvectorlogo.com/logos/mongodb-icon-2.svg" alt="mongodb" style="width:122px;height:122px;">
+        <img src="https://www.zend.com/sites/default/files/image/2020-04/image-blog-mysql-php.jpg" alt="sql" style="width:122px;height:122px;">
+        </div>
+    </section>
+
+    <section id="certificate">
+        <h2>Certificates Gained</h2>
+        <id class="cer">
+            <a href="https://res.cloudinary.com/dsx1pfgx2/image/upload/v1734316879/The_Joy_of_Computing_using_Python_ae2sf8.jpg" target="_blank">Python</a>
+            <a href="https://res.cloudinary.com/dsx1pfgx2/image/upload/v1738673414/htmlcerti_gqndad.jpg" target="_blank">Html</a>
+            <a href="https://res.cloudinary.com/dsx1pfgx2/image/upload/v1738673704/csscerti_ypf4nu.jpg" target="_blank">CSS</a>
+            <a href="https://simpli.app.link/SMXLVBHWOPb" target="_blank">JavaScript</a>
+            <a href="https://simpli.app.link/36kOn0uBmPb" target="_blank">Mongodb</a>
+            <A href="https://res.cloudinary.com/dsx1pfgx2/image/upload/v1738673588/sqlfordscerti_zvd9f2.jpg" target="_blank">SQL</A>
+        </id>
+    </section>
+
+    <section id="internship">
+        <h2>Internships</h2>
+        <id class="int">
+        <a href="https://res.cloudinary.com/dsx1pfgx2/image/upload/v1734315226/Kola_Teja_Naga_Sri_certificate_i8ppnr.jpg" target="_blank">Click here</a>
+        <a href="https://res.cloudinary.com/dsx1pfgx2/image/upload/v1734316208/Teja_Naga_Sri_Kola_989414_h8hfnf.jpg" target="_blank">Click here</a>
+    </id>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <id class="pro">
+        <a href="https://rawcdn.githack.com/TejaNagaSri13/Ecommerce/d561851ae96c9e7bd3997bbaae480a4880ec8fe5/flo1.html" target="_blank">project 1</a>
+        <a href="" target="_blank">project 2</a>
+    </id>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Phone: 9936610443</p>
+        <p>Email: nagasri.kola@sasi.ac.in</p>
+        <div class="cont">
+        <a href="https://www.linkedin.com/in/teja-nagasri-kola-27a752280"><img src="https://media.licdn.com/dms/image/v2/D4D12AQFSkkazpND0Tg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1696901179396?e=2147483647&v=beta&t=sg_aDp3g51FrQdFdKqc_c7Lz249Igbl5buOJvCcRzEY" alt="linkedin" style="width:42px;height:42px;"></a>
+        <a href="https://github.com/TejaNagaSri13"><img src="https://scientificinquirer.com/wp-content/uploads/2024/02/Octicons-mark-github.svg_.png" alt="github" style="width:42px;height:42px;"></a>
+        <a href="https://www.instagram.com/teja.kola_/profilecard/?igsh=dXN5bnlmdDN3bmo0"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/800px-Instagram_logo_2022.svg.png" alt="instagram" style="width:42px;height:42px;"></a>
+        </div>
+        <!-- Additional contact details or a contact form -->
+    </section>
+
+    <footer>
+        <marquee>© Thankyou for viewing the Portfolio..</marquee>
+    </footer>
+</body>
+</html>
