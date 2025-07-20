@@ -1,501 +1,737 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <style>
-        /* General Styles */
-        body {
-            margin: 0;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto; /* Maintains aspect ratio */
-        }
-
-        section {
-            padding: 2rem;
-        }
-
-        /* Header Section */
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: rgb(8, 84, 114);
-            color: white;
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        header h1 {
-            font-size: 2rem;
-            margin-left: 10px;
-        }
-
-        /* Navigation Menu */
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 15px;
-        }
-
-        nav ul li {
-            padding: 10px 0;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px 15px;
-            transition: background 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-        }
-
-        /* Hide checkbox */
-        #menu-toggle {
-            display: none;
-        }
-
-        /* Label for menu icon */
-        .menu-icon {
-            display: none;
-            font-size: 30px;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        /* Home Section */
-        #home {
-            display: flex;
-            flex-wrap: wrap; /* Ensures content wraps on smaller screens */
-            background-color: beige;
-            align-items: center;
-        }
-
-        .home-left {
-            flex: 1;
-            text-align: center;
-        }
-
-        .home-right {
-            flex: 1;
-            text-align: left;
-            padding: 1rem;
-        }
-
-        .home-right h2 {
-            color: rgb(6, 70, 95);
-            font-size: 2rem;
-        }
-
-        .home-right p {
-            color: rgb(8, 84, 114);
-            font-size: 1.1rem;
-            word-spacing: 5px;
-            line-height: 1.6;
-        }
-
-        #home .home-right a {
-            margin-top: 30px;
-            background-color: rgb(8, 84, 114);
-            color: white;
-            padding: 14px 25px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        /* About Section */
-        #about {
-            text-align: center;
-            background-color: beige;
-        }
-
-        #about h2 {
-            color: rgb(6, 70, 95);
-            font-size: 2rem;
-        }
-
-        #about p {
-            color: rgb(8, 84, 114);
-            font-size: 1.1rem;
-            word-spacing: 5px;
-            line-height: 1.6;
-        }
-
-
-        /*Education Section*/
-        #education {
-            padding: 20px;
-            text-align: center;
-            background: beige;
-        }
-
-        #education h2 {
-            color: rgb(6, 70, 95);
-        }
-
-        .education-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-    .education-box {
-        background: rgb(250, 250, 248);
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 300px;
-        text-align: left;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    p{
+      font-family: 'Merriweather', serif;
+      font-size: 17px;
+      line-height: 1.6;
+      color: #222;
     }
 
-    .education-box h3 {
-        color: rgb(6, 70, 95);
-        font-size: 20px;
+    body {
+      display: flex;
+      min-height: 100vh;
+      background-color: #f4f6f9;
+    }
+    nav {
+      width: 250px;
+      background: #1e293b;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 10px;
+      position: fixed;
+      height: 100vh;
+    }
+    nav img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      object-fit: cover;
+      border: 3px solid #38bdf8;
+    }
+    nav h2 {
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #cbd5e1;
+      margin: 10px 0;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #38bdf8;
+    }
+    main {
+      margin-left: 250px;
+      padding: 40px;
+      flex: 1;
+    }
+    section {
+      margin-bottom: 60px;
+    }
+    section h2 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: #0f172a;
+      border-bottom: 2px solid #38bdf8;
+      display: inline-block;
+      padding-bottom: 5px;
     }
 
-    .education-box p {
-        font-size: 16px;
-        color: rgb(8, 84, 114);
+    .education-table {
+      width: 100%;
+      border-collapse: collapse;
     }
 
-        /* Skills Section */
-        #skills {
-            background-color: beige;
-            text-align: center;
-        }
+    .education-table th,
+    .education-table td {
+      text-align: left;
+      padding: 8px;
+      border: none; /* No visible border */
+    }
 
-        #skills h2 {
-            color: rgb(6, 70, 95);
-        }
+    .education-table th {
+      font-weight: bold;
+    }
 
-        #skills .sk1 {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 1rem;
-        }
+    .skills-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
 
-        #skills .sk1 img {
-            width: 122px;
-            height: 122px;
-            object-fit: contain;
-        }
+    .skill-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+      padding: 30px;
+      width: 300px;
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
 
-        /* Certificates Section */
-        #certificate {
-            background-color: beige;
-            text-align: center;
-        }
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
 
-        #certificate a {
-            margin-top: 30px;
-            background-color: rgb(8, 84, 114);
-            color: white;
-            padding: 14px 25px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            margin: 5px;
-        }
+    .skill-title {
+      font-size: 20px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
 
-        /* Internships Section */
-        #internship {
-            background-color: beige;
-            text-align: center;
-        }
+    .blue { color: #1a73e8; }
+    .green { color: #0f9d58; }
+    .purple { color: #a142f4; }
 
-        #internship a {
-            margin-top: 30px;
-            background-color: rgb(8, 84, 114);
-            color: white;
-            padding: 14px 25px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            margin: 5px;
-        }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-        /*Projects section*/
-        #projects {
-            background-color: beige;
-            text-align: center;
-        }
+    .skill-tag {
+      background-color: #f1f4f9;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      color: #333;
+    }
 
-        #projects a {
-            margin-top: 30px;
-            background-color: rgb(8, 84, 114);
-            color: white;
-            padding: 14px 25px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            margin: 5px;
-        }
+    .projects-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
 
-        /* Contact Section */
-        #contact {
-            background-color: beige;
-            text-align: center;
-        }
+    .project-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+      padding: 24px;
+      width: 300px;
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
 
-        .cont {
-            background-color: cadetblue;
-            width: fit-content;
-            margin: 0 auto;
-            border: 5px solid rgb(8, 84, 114);
-            padding: 1rem;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
 
-        .cont img {
-            width: 40px;
-            height: 40px;
-        }
+    .project-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-        /* Footer Section */
-        footer {
-            background-color: rgb(8, 84, 114);
-            color: white;
-            text-align: center;
-        }
+    .project-badge {
+      background-color: #e2e8f0;
+      color: #333;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
 
-        footer marquee {
-            display: block;
-            padding: 1rem;
-        }
+    .project-desc {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 16px;
+    }
 
-        /* Responsive Design */
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
 
-         @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                background: rgb(8, 84, 114);
-                width: 100%;
-                text-align: center;
-                padding: 10px 0;
-                box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-            }
+    .project-tag {
+      background-color: #f1f4f9;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
 
-            /* Show menu when checkbox is checked */
-            #menu-toggle:checked + nav ul {
-                display: flex;
-            }
+    .view-button {
+      display: inline-block;
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      text-align: center;
+      background-color: white;
+      cursor: pointer;
+      text-decoration: none;
+      color: #000;
+      transition: 0.3s;
+    }
 
-            .menu-icon {
-                display: block;
-            }
+    .view-button:hover {
+      background-color: #f3f4f6;
+    }
 
-            nav ul li {
-                padding: 10px 0;
-            }
+    .internships-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
 
-            nav ul li a {
-                display: block;
-                padding: 15px;
-            }
-        }
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
+    .internships-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+      padding: 24px;
+      width: 800px;
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
 
-            nav ul {
-                flex-direction: column;
-                align-items: flex-start;
-                padding-left: 10px;
-            }
+    .internships-card:hover {
+      transform: translateY(-5px);
+    }
 
-            #home {
-                flex-direction: column;
-                text-align: center;
-            }
+    .internships-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-            .home-right {
-                text-align: center;
-            }
+    .internships-badge {
+      background-color: #e2e8f0;
+      color: #333;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
 
-            #skills .sk1 img {
-                width: 100px;
-                height: 100px;
-            }
+    .internships-desc {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 16px;
+    }
 
-            .cont {
-                flex-direction: column;
-                gap: 10px;
-            }
+    .internships-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
 
-            #home p, #about p, #contact p {
-                font-size: 1rem;
-                line-height: 1.4;
-            }
-        }
+    .internship-tag {
+      background-color: #f1f4f9;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
 
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.5rem;
-            }
+    .view-button {
+      display: inline-block;
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      text-align: center;
+      background-color: white;
+      cursor: pointer;
+      text-decoration: none;
+      color: #000;
+      transition: 0.3s;
+    }
 
-            nav ul {
-                gap: 5px;
-            }
+    .view-button:hover {
+      background-color: #f3f4f6;
+    }
 
-            #skills .sk1 img {
-                width: 80px;
-                height: 80px;
-            }
+    .contacts-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+      padding: 24px;
+      width: 500px;
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
 
-            .cont {
-                width: auto;
-                padding: 0.5rem;
-            }
-        }
-    </style>
+    .contacts-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact input,
+    .contact textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #94a3b8;
+      border-radius: 5px;
+    }
+    .contact button {
+      padding: 10px 20px;
+      background: #38bdf8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h1>Portfolio</h1>
-            <label for="menu-toggle" class="menu-icon">&#9776;</label> <!-- Hamburger Icon -->
-            <input type="checkbox" id="menu-toggle"> <!-- Hidden Checkbox -->
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Me</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#certificate">Certificates</a></li>
-                    <li><a href="#internship">Internships</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
+  <nav>
+    <img src="C:\Users\HP\OneDrive\Desktop\htmlcourse\InShot_20250719_145159178.jpg" >
+    <h3>Teja Naga Sri</h3>
+    <a href="#home">Home</a>
+    <a href="#about">About Me</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#internships">Internships</a>
+    <a href="#extra">Extracurricular Activites</a>
+    <a href="#contact">Contact Me</a>
+  </nav>
+  <main>
     <section id="home">
-        <div class="home-left">
-            <img src="https://res.cloudinary.com/dw6z3ltso/image/upload/v1734165835/1734101368502-fotor-2024121414104_mr7ncx.png" alt="student pic" width="300" height="300">
-        </div>
-        <div class="home-right">
-            <h2>Kola Teja Naga Sri</h2>
-            <p>"Hello, I'm Teja Naga Sri, currently pursuing my studies in Computer Science at Sasi Institute of Technology and Engineering. My passion lies in technology, design, and problem-solving. I'm always excited to learn new technologies and build innovative solutions. My dream is to work with leading tech companies to create impactful software products."
-            </p>
-            <a href="https://res.cloudinary.com/dsx1pfgx2/image/upload/v1738684373/resumeoverleaf_tfpdzy.jpg" target="_blank">Click here for Resume</a>
-        </div>
+      <h2>Hi there! </h2>
+      <br>
+      <h1 style="background-color: #0f172a; color: white; font-style: italic; font-family: 'Merriweather', serif;">Welcome to my personal portfolio....</h3>
+      <br>
+      <br>
+      <p>I'm a passionate and driven Computer Science student with hands-on experience across multiple domains including Data Science, Web Development, Android Development, and more. Explore my projects, certifications, and achievements to learn more about my journey in tech.
+</p>
     </section>
 
     <section id="about">
-        <h2>About Me</h2>
-        <p>I have strong foundation in programming languages like C, Python, Java as well as web development technologies like HTML, CSS, JavaScript and full-stack. I have build responsive web pages. I have also participated in Hackathons like Smart India Hackathon(SIH) and Micro,Small and Medium Enterprises(MSME). I had done Internships like Machine Learning, Android Development.</p>
-        <!-- More about the business -->
+      <h2>About Me</h2>
+      <p>I’m Teja Naga Sri Kola, a final-year B.Tech Computer Science student at Sasi Institute of Technology and Engineering, with a CGPA of 8.4. I’m deeply passionate about data-driven technologies and love turning raw information into meaningful insights.
+      <br><br>
+      My interests span across Data Analysis, Machine Learning, and Full-Stack Development. I’ve built projects using Python, Pandas, and visualization tools like Power BI and Excel, and also explored application development using Java and Firebase.<br><br>
+      I’ve completed internships in Data Science, MERN Stack, Android Development and Machine Learning, where I gained hands-on experience in real-world problem solving, API integration, and predictive modeling.<br><br>
+      I’m now looking for internship and full-time opportunities where I can contribute to impactful projects while continuously learning and growing in the tech industry.
+      </p>
     </section>
 
     <section id="education">
-        <h2>Education</h2>
-        <div class="education-container">
-            <div class="education-box">
-                <h3>Sasi Institute of Technology and Engineering</h3>
-                <p>Location: Tadepalligudem, AP, India</p>
-                <p>Percentage: 85%</p>
-                <p>Year: 2022 - 2026</p>
-            </div>
-    
-            <div class="education-box">
-                <h3>Sasi Junior College</h3>
-                <p>Location: Tanuku, AP, India</p>
-                <p>Percentage: 93%</p>
-                <p>Year: 2020 - 2022</p>
-            </div>
-
-            <div class="education-box">
-                <h3>Montessori School</h3>
-                <p>Location: Tanuku, AP, India</p>
-                <p>Percentage: 93%</p>
-                <p>Year: 2019 - 2020</p>
-            </div>
-        </div>
+      <h2>Education</h2>
+      <table class="education-table">
+      <tr>
+      <th>College / School</th>
+      <th>Course</th>
+      <th>Percentage</th>
+      <th>Passed Out Year</th>
+      </tr>
+      <tr>
+      <td>Sasi Institute of Technology and Engineering</td>
+      <td>B.Tech in Computer Science and Engineering</td>
+      <td>84%</td>
+      <td>2026</td>
+      </tr>
+      <tr>
+      <td>Sasi Junior College</td>
+      <td>Secondary Education in MPC</td>
+      <td>93.5%</td>
+      <td>2022</td>
+      </tr>
+      <tr>
+      <td>Montessori School</td>
+      <td>SSC</td>
+      <td>93.5%</td>
+      <td>2020</td>
+      </tr>
+      </table>
     </section>
-    
+
 
     <section id="skills">
-        <div class="sk">
-        <h2>Skills</h2>
-        </div>
-        <div class="sk1">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN2Ob42L45hStICYlml7RTjH9p4q0E89vc6Q&s" alt="c" style="width:122px;height:122px;">
-        <img src="https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp?fit=1920%2C1920&ssl=1" alt="python" style="width:122px;height:122px;">
-        <img src="https://1000logos.net/wp-content/uploads/2020/09/Java-Emblem.jpg" alt="java" style="width:122px;height:122px;">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFBDpP5C5t_t8FjbMu-rjqndyjCmaoKMNTjA&s" alt="html"  style="width:122px;height:122px;">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD6JsUMyt5qWN2Q4FAeBfgsaXRy5ZAQ1m-ZQ&s" alt="css" style="width:122px;height:122px;">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnQK9gTb30FwDgp7Ss5lS1yumraT65MmdaR1J2ZLBa5WYjgzafpD8dac4lP-Kp3pWmebY&usqp=CAU" alt="javascript"  style="width:122px;height:122px;">
-        <img src="https://cdn.worldvectorlogo.com/logos/mongodb-icon-2.svg" alt="mongodb" style="width:122px;height:122px;">
-        <img src="https://www.zend.com/sites/default/files/image/2020-04/image-blog-mysql-php.jpg" alt="sql" style="width:122px;height:122px;">
-        </div>
-    </section>
+      <h2>Skills & Technologies</h2>
 
-    <section id="certificate">
-        <h2>Certificates Gained</h2>
-        <id class="cer">
-            <a href="https://res.cloudinary.com/dsx1pfgx2/image/upload/v1734316879/The_Joy_of_Computing_using_Python_ae2sf8.jpg" target="_blank">Python</a>
-            <a href="https://res.cloudinary.com/dsx1pfgx2/image/upload/v1738673414/htmlcerti_gqndad.jpg" target="_blank">Html</a>
-            <a href="https://res.cloudinary.com/dsx1pfgx2/image/upload/v1738673704/csscerti_ypf4nu.jpg" target="_blank">CSS</a>
-            <a href="https://simpli.app.link/SMXLVBHWOPb" target="_blank">JavaScript</a>
-            <a href="https://simpli.app.link/36kOn0uBmPb" target="_blank">Mongodb</a>
-            <A href="https://res.cloudinary.com/dsx1pfgx2/image/upload/v1738673588/sqlfordscerti_zvd9f2.jpg" target="_blank">SQL</A>
-        </id>
-    </section>
+  <div class="skills-container">
+    <!-- Languages -->
+    <div class="skill-card">
+      <div class="skill-title blue">Languages</div>
+      <div class="skill-tags">
+        <div class="skill-tag">Python</div>
+        <div class="skill-tag">C</div>
+        <div class="skill-tag">Java</div>
+        <div class="skill-tag">HTML</div>
+        <div class="skill-tag">CSS</div>
+        <div class="skill-tag">JavaScript</div>
+        <div class="skill-tag">R</div>
+      </div>
+    </div>
 
-    <section id="internship">
-        <h2>Internships</h2>
-        <id class="int">
-        <a href="https://res.cloudinary.com/dsx1pfgx2/image/upload/v1734315226/Kola_Teja_Naga_Sri_certificate_i8ppnr.jpg" target="_blank">Click here</a>
-        <a href="https://res.cloudinary.com/dsx1pfgx2/image/upload/v1734316208/Teja_Naga_Sri_Kola_989414_h8hfnf.jpg" target="_blank">Click here</a>
-    </id>
+    <!-- Libraries & Tools -->
+    <div class="skill-card">
+      <div class="skill-title green">Libraries & Tools</div>
+      <div class="skill-tags">
+        <div class="skill-tag">Pandas</div>
+        <div class="skill-tag">NumPy</div>
+        <div class="skill-tag">Power BI</div>
+        <div class="skill-tag">Excel</div>
+        <div class="skill-tag">Tableau</div>
+        <div class="skill-tag">SQL</div>
+        <div class="skill-tag">Git</div>
+        <div class="skill-tag">MongoDB</div>
+        <div class="skill-tag">VS Code</div>
+      </div>
+    </div>
+
+    <!-- Concepts -->
+    <div class="skill-card">
+      <div class="skill-title purple">Concepts</div>
+      <div class="skill-tags">
+        <div class="skill-tag">Data Analysis</div>
+        <div class="skill-tag">Machine Learning Basics</div>
+        <div class="skill-tag">Data Visualization</div>
+        <div class="skill-tag">DSA</div>
+        <div class="skill-tag">DBMS</div>
+        <div class="skill-tag">Operating Systems</div>
+      </div>
+    </div>
+  </div>
     </section>
 
     <section id="projects">
-        <h2>Projects</h2>
-        <id class="pro">
-        <a href="https://rawcdn.githack.com/TejaNagaSri13/Ecommerce/d561851ae96c9e7bd3997bbaae480a4880ec8fe5/flo1.html" target="_blank">project 1</a>
-        <a href="" target="_blank">project 2</a>
-    </id>
+      <h2>Featured Projects</h2>
+      <div class="projects-container">
+
+    <!-- Project 1 -->
+    <div class="project-card">
+      <div class="project-title">
+        Personal Portfolio
+        <span class="project-badge" style="background-color: #111; color: white;">Live</span>
+      </div>
+      <div class="project-desc">
+        A responsive personal portfolio website showcasing my skills, projects, internships and certifications.
+      </div>
+      <div class="project-tags">
+        <div class="project-tag">HTML</div>
+        <div class="project-tag">CSS</div>
+      </div>
+      <a href="https://tejanagasri13.github.io/Portfolio/" class="view-button">View Details &#x1F5CE;</a>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <div class="project-title">
+        E-commerce Website
+        <span class="project-badge" style="background-color: #111; color: white;">Live</span>
+      </div>
+      <div class="project-desc">
+        Modern web application featuring dynamic cart functionality and smooth UI animations built with JavaScript.
+      </div>
+      <div class="project-tags">
+        <div class="project-tag">JavaScript</div>
+        <div class="project-tag">HTML</div>
+        <div class="project-tag">CSS</div>
+      </div>
+      <a href=" https://tejanagasri13.github.io/Ecommerce/" class="view-button">View Details &#x1F5CE;</a>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card">
+      <div class="project-title">
+        Recipebook
+        <span class="project-badge" style="background-color: #111; color: white;">Live</span>
+      </div>
+      <div class="project-desc">
+        A simple web app created using MERN Stack featuring CRUD oprations and manage delicious recipes interactively.
+      </div>
+      <div class="project-tags">
+        <div class="project-tag">MongoDB</div>
+        <div class="project-tag">Express.js</div>
+        <div class="project-tag">React.js</div>
+        <div class="project-tag">Node.js</div>
+      </div>
+      <a href="https://recipebook3.onrender.com" class="view-button">View Details &#x1F5CE;</a>
+    </div>
+
+    <!--Project4 -->
+    <div class="project-card">
+      <div class="project-title">
+        Student Performance Dashboard
+        <span class="project-badge" style="background-color: #111; color: white;">Live</span>
+      </div>
+      <div class="project-desc">
+        A simple and interactive Streamlit web app to analyze student academic performance from a CSV file.
+      </div>
+      <div class="project-tags">
+        <div class="project-tag">Python</div>
+        <div class="project-tag">Streamlit</div>
+        <div class="project-tag">Python libraries</div>
+      </div>
+      <a href="https://student-performance-dashboard-peqfkbzw693xzwdrdubvja.streamlit.app/" class="view-button">View Details &#x1F5CE;</a>
+    </div>
+
+    <!--Project5 -->
+    <div class="project-card">
+      <div class="project-title">
+        Fake News Detector
+        <span class="project-badge" style="background-color: #111; color: white;">Completed</span>
+      </div>
+      <div class="project-desc">
+        A machine learning model to classify and detect fake health news based on news content.
+      </div>
+      <div class="project-tags">
+        <div class="project-tag">Python</div>
+        <div class="project-tag">Logistic Regression</div>
+        <div class="project-tag">Accuracy measures</div>
+      </div>
+      <a href="https://github.com/TejaNagaSri13/fake-news-detector" class="view-button">View Details &#x1F5CE;</a>
+    </div>
+
+  </div>
+
+
     </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Phone: 9936610443</p>
-        <p>Email: nagasri.kola@sasi.ac.in</p>
-        <div class="cont">
-        <a href="https://www.linkedin.com/in/teja-nagasri-kola-27a752280"><img src="https://media.licdn.com/dms/image/v2/D4D12AQFSkkazpND0Tg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1696901179396?e=2147483647&v=beta&t=sg_aDp3g51FrQdFdKqc_c7Lz249Igbl5buOJvCcRzEY" alt="linkedin" style="width:42px;height:42px;"></a>
-        <a href="https://github.com/TejaNagaSri13"><img src="https://scientificinquirer.com/wp-content/uploads/2024/02/Octicons-mark-github.svg_.png" alt="github" style="width:42px;height:42px;"></a>
-        <a href="https://www.instagram.com/teja.kola_/profilecard/?igsh=dXN5bnlmdDN3bmo0"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/800px-Instagram_logo_2022.svg.png" alt="instagram" style="width:42px;height:42px;"></a>
-        </div>
-        <!-- Additional contact details or a contact form -->
-    </section>
+    <section id="internships">
+      <h2>Internships</h2>
+      <div class="internships-container">
 
-    <footer>
-        ©2025 Portfolio | All rights are reserved.
-    </footer>
+    <!-- Internship 1 -->
+    <div class="internships-card">
+      <div class="internships-title">
+        Data Science Intern - Nyeras
+        <span class="internships-badge" style="background-color: #111; color: white;">May 2025 - June 2025</span>
+      </div>
+      <div class="internships-desc">
+        I gained hands-on experience in data collection, cleaning, analysis, and visualization, as well as exposure to machine learning techniques and tools.
+      </div>
+      <br>
+      <a href="https://drive.google.com/file/d/12BIjk7652JKX6BkMywyPVLvZzdrksDUY/view?usp=sharing" class="view-button">View Certificate &#x1F5CE;</a>
+    </div>
+
+    <!-- Internship 2 -->
+    <div class="internships-card">
+      <div class="internships-title">
+        Data Science Intern - Skilldzire
+        <span class="internships-badge" style="background-color: #111; color: white;">May 2025 - June 2025</span>
+      </div>
+      <div class="internships-desc">
+        I gained hands-on experience in data collection, cleaning, analysis, and visualization, as well as exposure to machine learning techniques and tools.
+      </div>
+      <br>
+      <a href="https://drive.google.com/file/d/10TZ28y8hwsSdulXodx6kZ-doDYICDKvr/view?usp=sharing" class="view-button">View Certificate &#x1F5CE;</a>
+    </div>
+
+    <!-- Internship 3 -->
+    <div class="internships-card">
+      <div class="internships-title">
+        Web Developer Intern - Edunet Foundation
+        <span class="internships-badge" style="background-color: #111; color: white;">February 2025 - March 2025.</span>
+      </div>
+      <div class="internships-desc">
+        I gained a experience in Building Modern Web Applications with MERN Stack. Also gained knowledge in connecting frontend with backend. 
+      </div>
+      <br>
+      <a href="https://drive.google.com/file/d/1EbE65c0fOL4zvb8q79Gxg2EVdmuVfqHJ/view?usp=sharing" class="view-button">View Certificate &#x1F5CE;</a>
+    </div>
+
+    <!-- Internship 4 -->
+    <div class="internships-card">
+      <div class="internships-title">
+        Machine Learning Intern - Skilldzire
+        <span class="internships-badge" style="background-color: #111; color: white;">May 2024 - July 2024.</span>
+      </div>
+      <div class="internships-desc">
+        I build a solid foundation in machine learning concepts, algorithms, and programming languages like Python.. 
+      </div>
+      <br>
+      <a href="https://drive.google.com/file/d/11ePCf3eBUwf9E-19fsbc6OAXSiVpx5Vq/view?usp=sharing" class="view-button">View Certificate &#x1F5CE;</a>
+    </div>
+
+    <!-- Internship 5 -->
+    <div class="internships-card">
+      <div class="internships-title">
+        Android Developer Intern - EduSkills
+        <span class="internships-badge" style="background-color: #111; color: white;">April 2024 - June 2024.</span>
+      </div>
+      <div class="internships-desc">
+        I gained hands-on experience with real-world projects, learning to design, develop, and test Android applications using tools like Android Studio and programming languages like Java
+      </div>
+      <br>
+      <a href="https://drive.google.com/file/d/1J6748p2XCq0HRpuSIlU17z3-AC7Nct8C/view?usp=sharing" class="view-button">View Certificate &#x1F5CE;</a>
+    </div>
+
+    <!-- Internship 6 -->
+    <div class="internships-card">
+      <div class="internships-title">
+        AI - ML Intern - EduSkills
+        <span class="internships-badge" style="background-color: #111; color: white;">January 2024 - March 2024.</span>
+      </div>
+      <div class="internships-desc">
+        I gained knowledge in Artifical Intelligence and Machine Leraning. 
+      </div>
+      <br>
+      <a href="https://drive.google.com/file/d/14GvXsh2Hs-V8ULI8DZ6TEdGPYjkU41t9/view?usp=sharing" class="view-button">View Certificate &#x1F5CE;</a>
+    </div> 
+  </div>
+    </section> 
+   
+   <section id="extra">
+      <h2>Extra Curricular Activies</h2>
+      <div class="internships-container">
+
+    <!-- Internship 1 -->
+    <div class="internships-card">
+      <div class="internships-title">
+        Certifications:
+        <br><br>
+        <span class="internships-badge" style="background-color: #111; color: white;"></span>
+      </div>
+      <div class="internships-desc">
+        I am a passionate learner who constantly explores new technologies and domains. Over the years, I have earned certifications across a wide range of fields to broaden my knowledge and strengthen my skills. These certifications reflect my commitment to continuous learning and my interest in diverse areas of technology and innovation. Here is the link to view all my certifications, maintained as proof of work across various domains:
+      </div>
+      <br>
+      <a href="https://drive.google.com/drive/folders/1qxK93C-DU9sTt3NmcgGK6VBmD84_VG8T?usp=sharing" class="view-button">View Certificate &#x1F5CE;</a>
+    </div>
+
+    <!-- Internship 2 -->
+    <div class="internships-card">
+      <div class="internships-title">
+        Hackathons & Webinars:
+        <br><br>
+      </div>
+      <div class="internships-desc">
+        <p>I actively participate in hackathons and technical events to challenge my skills, collaborate with peers, and build innovative solutions under pressure. Notable hackathons I’ve been part of include:
+          </p>
+        <ul><li>Smart India Hackathon (SIH)</li>
+
+        <li>MSME Hackathon</li></ul>
+        <p>These experiences have strengthened my problem-solving abilities, teamwork, and hands-on project development skills.
+          <br>
+        <br>In addition, I’ve attended several webinars and tech sessions to stay updated with the latest trends in technology. These include topics such as:
+          </p>
+        <ul><li>Data Analytics</li>
+
+        <li>Artificial Intelligence (AI)</li>
+
+      <li>Web Development</li></ul>
+          <br>
+      <p>Each event has helped me deepen my understanding of real-world applications and build a strong foundation for continuous learning.
+          </p>
+
+      </div>
+      
+    </div>
+
+    <!-- Internship 3 -->
+    <div class="internships-card">
+      <div class="internships-title">
+        Languages Known: 
+        <br><br>
+      </div>
+      <div class="internships-desc">
+        <ul>
+          <li>
+            <p>Telugu – Native proficiency</p>
+          </li>
+          <li>
+            <p>English – Fluent (speaking, reading, writing)</p>
+          </li>
+          <li>
+            <p>Hindi – Proficient (reading, writing, and comprehension)</p>
+          </li>
+        </ul>
+      </div>
+      </div>
+
+    <!-- Internship 4 -->
+    <div class="internships-card">
+      <div class="internships-title">
+        Core Strengths:
+        <br><br>
+      </div>
+      <div class="internships-desc">
+        <ul>
+          <li>
+            <p>Adaptability – Quick to adjust in dynamic environments and open to learning new technologies or workflows.</p>
+          </li>
+          <li>
+            <p>Effective Communication – Able to convey ideas clearly and work efficiently in teams or individual settings.</p>
+          </li>
+          <li>
+            <p>Organized & Detail-Oriented – Maintain structured work habits and manage tasks with focus and efficiency.</p>
+          </li>
+        </ul>
+      </div>
+     </div>
+  </div>
+    </section> 
+    
+    <section id="contact-resume" class="section">
+  <h2 class="section-title">Resume & Contact Me</h2>
+  <div class="internships-container">
+    <div class="contacts-card">
+  <ul class="info-list">
+    <li>🔗 <strong>Download Resume:</strong> 
+      <a href="https://drive.google.com/file/d/1MKxMXSjDniGFlEhlapbGZXULi5ZtXDND/view?usp=sharing" download>Click here to download (PDF)</a>
+    </li>
+    <br>
+    <li>📧 <strong>Email:</strong> 
+      <a href="mailto:tejanagasri13@gmail.com">tejanagasri13@gmail.com</a>
+    </li>
+    <br>
+    <li>🔗 <strong>LinkedIn:</strong> 
+      <a href="https://www.linkedin.com/in/teja-nagasri-kola-27a752280" target="_blank">linkedin</a>
+    </li>
+    <br>
+    <li>🐱 <strong>GitHub:</strong> 
+      <a href="https://github.com/TejaNagaSri13" target="_blank">github</a>
+    </li>
+    <br>
+    <li>🔗 <strong>CodeChef:</strong> 
+      <a href="https://www.codechef.com/users/teja22k61a4435" target="_blank">codechef</a>
+    </li>
+  </ul>
+  </div>
+  </div>
+</section>
+
+  </main>
 </body>
 </html>
