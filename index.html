@@ -318,6 +318,97 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
+    /* ================= RESPONSIVE FIXES ================= */
+
+/* Tablets & small laptops */
+@media (max-width: 1024px) {
+  nav {
+    width: 200px;
+  }
+
+  main {
+    margin-left: 200px;
+    padding: 20px;
+  }
+
+  .internships-card {
+    width: 100%;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+
+  body {
+    flex-direction: column;
+  }
+
+  /* Sidebar becomes top navigation */
+  nav {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
+  }
+
+  nav img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+  }
+
+  nav h3 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  nav a {
+    margin: 6px 10px;
+    font-size: 14px;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  /* Cards resize properly */
+  .skill-card,
+  .project-card,
+  .internships-card,
+  .contacts-card {
+    width: 100%;
+  }
+
+  /* Tables scroll safely on mobile */
+  .education-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 480px) {
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  nav a {
+    font-size: 13px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -736,6 +827,7 @@
   </main>
 </body>
 </html>
+
 
 
 
